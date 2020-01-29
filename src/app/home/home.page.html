@@ -7,8 +7,28 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
-</ion-content>
+  <ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" color="warning">
+      <ion-segment-button value="0">
+        <ion-icon name="football"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <ion-icon name="grid"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="2">
+        <ion-icon name="flag"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-slides #slides (ionSlideDidChange)="slideChanged()" >
+    <ion-slide >
+      <app-fixtures class="full-width"></app-fixtures>
+    </ion-slide>
+    <ion-slide>
+      <app-standing class="full-width"></app-standing>
+    </ion-slide>
+    <ion-slide>
+      <app-teams class="full-width"></app-teams>
+    </ion-slide>
+  </ion-slides>
