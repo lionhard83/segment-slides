@@ -4,9 +4,6 @@
       Ionic Blank
     </ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content>
   <ion-toolbar>
     <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" color="warning">
       <ion-segment-button value="0">
@@ -20,8 +17,12 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
+</ion-header>
 
-  <ion-slides #slides (ionSlideDidChange)="slideChanged()" >
+<ion-content>
+  
+
+  <ion-slides [options]="sliderOptions" #slides (ionSlideDidChange)="slideChanged()" >
     <ion-slide >
       <app-fixtures class="full-width"></app-fixtures>
     </ion-slide>
